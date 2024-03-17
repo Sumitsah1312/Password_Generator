@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState,useRef } from 'react'
-
+import Logo from "../public/logo.png"
 
 function App() {
   const [length, setLength] = useState(8)
@@ -31,8 +31,12 @@ function App() {
   useEffect(()=>{passwordGenerator()},[length,ischar,isnumber,setPassword])
   return (
     <>
-       <div className='w-full max-w-md mx-auto shadow-md rounded-lg p-4 m-8 text-orange-500 bg-gray-600'>
-        <div className='text-white text-3xl p-3 text-center'>Password Generator</div>
+       <div className='w-full max-w-md mx-auto shadow-md rounded-lg p-4 m-8 text-orange-500 bg-white' style={{marginTop:"20vh"}}>
+        <div className='text-gray-500  p-3 text-center'>
+          <img className='mx-auto' src={Logo} alt="" />
+          <div className='text-3xl'>Password Generator</div>
+          <p className='text-1xl mt-3'>Create Your own Password</p>
+        </div>
               <div className='flex shadow rounded-lg overflow-hidden m-3 '> 
                 <input type="text" value={password} className='outline-none w-full py-1 px-3' placeholder='Password ' ref={passref} readOnly />
 
@@ -56,7 +60,7 @@ function App() {
                   <input type="checkbox" defaultChecked={isnumber} id='numberInput'
                   onChange={()=>{setisChar((prev)=>!prev)}}
                   />
-                  <label >Characters</label>
+                  <label > Special Characters</label>
                 </div>
               </div>
 
